@@ -54,3 +54,39 @@ queue.enqueue(3)
 console.log(queue.head())
 console.log(queue.dequeue())
 console.log(queue.head())
+
+function $StackToQueue () {
+  // enqueue
+  let stack1 = new Stack()
+  // head dequeue
+  let stack2 = new Stack()
+  function stack1ToStack2 () {
+    while(stack1.top()) {
+      stack2.push(stack1.pop())
+    }
+  }
+  function stack2ToStack1 () {
+    while(stack2.top()) {
+      stack1.push(stack2.pop())
+    }
+  }
+  this.enqueue = function (data) {
+    stack2ToStack1()
+    stack1.push(data)
+  }
+  this.head = function() {
+    stack1ToStack2()
+    return stack2.top()
+  }
+  this.dequeue = function() {
+    stack1ToStack2()
+    return stack2.pop()
+  }
+}
+let $queue = new $StackToQueue()
+$queue.enqueue(1)
+$queue.enqueue(2)
+$queue.enqueue(3)
+console.log($queue.head())
+console.log($queue.dequeue())
+console.log($queue.head())
