@@ -15,11 +15,11 @@ function LinkList () {
   }
   // 返回链表头节点
   this.head = function () {
-    return head
+    return head.data
   }
   // 返回链表尾节点
   this.tail = function () {
-    return tail
+    return tail.data
   }
   // 链表是否为空
   this.isEmpty = function () {
@@ -96,14 +96,15 @@ function LinkList () {
       head = head.next
       del_node.next = null
       length--
-      return del_node
+      return del_node.data
     } else {
       let pre_node = this.get(index-1)
       del_node = this.get(index)
       pre_node.next = del_node.next
       del_node.next = null
       length--
-      return del_node
+      tail = this.get(length-1)
+      return del_node.data
     }
   }
   // 移除链表头节点
@@ -131,13 +132,13 @@ function LinkList () {
 module.exports = {
   LinkList
 }
-let linkList = new LinkList()
-linkList.append(1)
-linkList.append(2)
-linkList.append(3)
-console.log(linkList.indexOf(3))
-console.log(linkList.get(1))
-linkList.insert(1, 88)
-console.log(linkList.print())
-linkList.remove(1)
-console.log(linkList.print())
+// let linkList = new LinkList()
+// linkList.append(1)
+// linkList.append(2)
+// linkList.append(3)
+// console.log(linkList.indexOf(3))
+// console.log(linkList.get(1))
+// linkList.insert(1, 88)
+// console.log(linkList.print())
+// linkList.remove(1)
+// console.log(linkList.print())
