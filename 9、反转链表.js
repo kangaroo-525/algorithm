@@ -23,19 +23,18 @@ function print (node) {
     current_node = current_node.next
   }
 }
-
+// 迭代反转
 function reverse_iter (head) {
-  let cur_node = head
   let pre_node = null
-  while(cur_node) {
+  while(head) {
     // 备用下一个节点
-    let next_node = cur_node.next
+    let next_node = head.next
     // 另当前节点指向前一个节点, 实现反转
-    cur_node.next = pre_node
+    head.next = pre_node
     // 将当前反转后的部分链表保存起来
-    pre_node = cur_node
+    pre_node = head
     // 将当前节点移动至下一个节点
-    cur_node = next_node
+    head = next_node
   }
   return pre_node
 }
@@ -52,6 +51,6 @@ function reverse_digui (head) {
   head.next = null
   return new_head
 }
-// print(reverse_iter(node1))
-print(reverse_digui(node1))
+print(reverse_iter(node1))
+// print(reverse_digui(node1))
 
