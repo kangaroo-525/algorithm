@@ -51,6 +51,6 @@ function reverse_digui (head) {
   head.next = null
   return new_head
 }
-print(reverse_iter(node1))
+print(reverse_iter(node1))2
 // print(reverse_digui(node1))
 

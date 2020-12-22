@@ -38,6 +38,7 @@ function merge_link (head1, head2) {
   let cur_node2 = head2
   let head = null
   let tail = null
+  // 确定第一个节点
   if (cur_node1.data < cur_node2.data) {
     head = cur_node1
     tail = cur_node1
@@ -48,6 +49,7 @@ function merge_link (head1, head2) {
     cur_node2 = cur_node2.next
   }
   // console.log(head.print())
+  // 哪个小添加哪个 并将小的后移继续比较
   while(cur_node1 && cur_node2) {
     if (cur_node1.data < cur_node2.data) {
       tail.next = cur_node1
@@ -59,9 +61,11 @@ function merge_link (head1, head2) {
       cur_node2 = cur_node2.next
     }
   }
+  // 如果一只链表循环完毕 直接将另一只链表添加进去
   if (!cur_node1) {
     tail.next = cur_node2
   }
+  // 如果一只链表循环完毕 直接将另一只链表添加进去
   if (!cur_node2) {
     tail.next = cur_node1
   }
